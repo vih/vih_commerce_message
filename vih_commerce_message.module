@@ -5,3 +5,41 @@
  */
 
 include_once 'vih_commerce_message.features.inc';
+
+/**
+ * Implements hook_message_presave().
+ *
+ * We cannot use a token to show the order-summary, since both Token and
+ * Entity API modules invoke token_generate() which results with an array
+ * instead of a string with the replacement text.
+ *
+ * Instead, upon saving the message for the first time we inject an
+ * argument with a callback, that will return the order summary.
+ *
+ * @link http://drupal.org/node/1272560
+ */
+function vih_commerce_message_message_presave($message) {
+  if (!empty($message->mid) || $message->type != 'commerce_order_order_confirmation') {
+    return;
+  }
+
+  $message->arguments['!order-summary'] = array(
+    'callback' => 'vih_commerce_message_order_summary',
+    'pass message' => TRUE,
+  );
+}
+
+/**
+ * Message callback; Show order summary.
+ *
+ * @param $message
+ *   The Message entity.
+ */
+function vih_commerce_message_order_summary(Message $message) {
+  $wrapper = entity_metadata_wrapper('message', $message);
+  $view = views_get_view('commerce_cart_summary');
+  $view->set_arguments(array($wrapper->message_commerce_order->getIdentifier()));
+  $view->hide_admin_links = TRUE;
+  return $view->preview();
+}
+
