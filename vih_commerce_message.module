@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the VIH Commerce Message feature.
+ */
+
+include_once 'vih_commerce_message.features.inc';
