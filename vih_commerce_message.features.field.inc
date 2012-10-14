@@ -10,14 +10,14 @@
 function vih_commerce_message_field_default_fields() {
   $fields = array();
 
-  // Exported field: 'message-commerce_order_order_confirmation-field_message_commerce_order'.
-  $fields['message-commerce_order_order_confirmation-field_message_commerce_order'] = array(
+  // Exported field: 'message-commerce_order_order_confirmation-message_commerce_order'.
+  $fields['message-commerce_order_order_confirmation-message_commerce_order'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_message_commerce_order',
+      'field_name' => 'message_commerce_order',
       'foreign keys' => array(
         'node' => array(
           'columns' => array(
@@ -88,7 +88,7 @@ function vih_commerce_message_field_default_fields() {
         ),
       ),
       'entity_type' => 'message',
-      'field_name' => 'field_message_commerce_order',
+      'field_name' => 'message_commerce_order',
       'label' => 'Order',
       'required' => 0,
       'settings' => array(

@@ -27,7 +27,7 @@ function vih_commerce_message_default_rules_configuration() {
           }
         },
         { "data_set" : {
-            "data" : [ "entity-created:field-message-commerce-order" ],
+            "data" : [ "entity-created:message-commerce-order" ],
             "value" : [ "commerce-order" ]
           }
         },
