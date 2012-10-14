@@ -8,7 +8,7 @@
  * Implements hook_token_info().
  */
 function vih_commerce_message_token_info() {
-  $info['tokens']['commerce-order']['site-logo'] = array(
+  $info['tokens']['site']['site-logo'] = array(
     'name' => t('Site logo'),
     'description' => t('The logo of the site.'),
   );
