@@ -19,11 +19,11 @@ function vih_commerce_message_field_default_fields() {
       'entity_types' => array(),
       'field_name' => 'message_commerce_order',
       'foreign keys' => array(
-        'node' => array(
+        'commerce_order' => array(
           'columns' => array(
-            'target_id' => 'nid',
+            'target_id' => 'order_id',
           ),
-          'table' => 'node',
+          'table' => 'commerce_order',
         ),
       ),
       'indexes' => array(
